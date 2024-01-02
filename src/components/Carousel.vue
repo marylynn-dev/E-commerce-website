@@ -1,0 +1,23 @@
+<template>
+  <v-carousel
+    cycle
+    interval="3000"
+    reverse
+    hide-delimiter-background
+    show-arrows="hover"
+  >
+    <v-carousel-item
+      src="https://themewagon.github.io/eshopper/img/carousel-1.jpg"
+      cover
+    ></v-carousel-item>
+    <v-carousel-item
+      src="https://themewagon.github.io/eshopper/img/carousel-2.jpg"
+      cover
+    >
+    </v-carousel-item>
+    <v-carousel-item
+      src="https://themewagon.github.io/eshopper/img/carousel-1.jpg"
+      cover
+    ></v-carousel-item>
+  </v-carousel>
+</template>
