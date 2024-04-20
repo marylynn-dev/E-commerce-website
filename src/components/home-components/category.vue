@@ -30,6 +30,7 @@ const fetchCategories = () => {
     .get(`https://api.escuelajs.co/api/v1/categories`)
     .then((res) => {
       categories.value = res.data;
+      console.log(categories.value.length)
     })
     .catch((err) => console.log(`Error ${err} occured!`));
 };

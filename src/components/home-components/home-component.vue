@@ -17,7 +17,16 @@
     <v-row class="mt-15"
       ><v-col cols="3"><p class="text-h4 fw-bold">Trandy Products</p></v-col>
     </v-row>
-    <products />
+    <v-row v-if="productStore.products">
+      <v-col
+        v-for="product in productStore.products"
+        :key="product.id"
+        cols="4"
+        class="mx-auto"
+        rounded="0"
+      >
+        <product :product="product"> </product> </v-col
+    ></v-row>
     <v-row
       class="text-center my-15"
       style="background-color: #edf1ff"
@@ -27,20 +36,37 @@
     <v-row class="mt-15"
       ><v-col cols="3"><p class="text-h4 fw-bold">Just Arrived</p></v-col>
     </v-row>
-    <products />
+    <v-row>
+      <v-col
+        v-for="product in productStore.products"
+        :key="product.id"
+        cols="4"
+        class="mx-auto"
+        rounded="0"
+      >
+        <product :product="product"> </product> </v-col
+    ></v-row>
   </v-container>
 </template>
 
 <script setup>
-import category from "../Home Components/Category.vue";
-import products from "../Home Components/Products.vue";
-import stayUpdated from "./StayUpdated.vue";
-import collection from "./Collection.vue";
+//imports
+import { useProductStore } from "../../store/product-store.js";
+import category from "./category.vue";
+import product from "./product.vue";
+import stayUpdated from "./stay-updated.vue";
+import collection from "./collection.vue";
 
+//middleware
+const productStore = useProductStore();
+
+//data
 const items = [
   { title: "Quality Product", icon: "mdi-check" },
   { title: "Free Shipping", icon: "mdi-truck-fast" },
   { title: "14-Day Return", icon: "mdi-swap-horizontal" },
   { title: "24/7 Support", icon: "mdi-phone-in-talk" },
 ];
+
+productStore.getProducts();
 </script>

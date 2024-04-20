@@ -2,7 +2,7 @@
   <div class="border">
     <v-row>
       <v-col cols="3">
-        <Navigation />
+        <navigation />
       </v-col>
       <v-col>
         <v-tabs v-model="tab">
@@ -89,15 +89,21 @@
         </v-window>
       </v-col>
     </v-row>
-    <v-row> <Home /> </v-row>
+    <v-row v-if="tab === 'home'">
+      <home />
+    </v-row>
+    <v-row v-if="tab === 'shop'">
+      <shop />
+    </v-row>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import carousel from "../components/Carousel.vue";
-import Navigation from "../components/Navigation.vue";
-import Home from "../components/Home Components/HomeComponent.vue";
+import navigation from "../components/Navigation.vue";
+import home from "../components/home-components/home-component.vue";
+import shop from  "../components/shop-components/filter.vue"
 
 const tab = ref("home");
 </script>
